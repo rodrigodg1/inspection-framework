@@ -15,9 +15,8 @@ This script requires the following modules:
 
 To use this script, run the following command:
 
-    ```console
     rosrun subscriber subscriber.py
-    ```
+
 
 ## Classes
 
