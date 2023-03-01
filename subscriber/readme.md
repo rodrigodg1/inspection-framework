@@ -15,7 +15,7 @@ This script requires the following modules:
 
 To use this script, run the following command:
 
-    rosrun subscriber subscriber.py
+    python3 subscribers-gui.py
 
 
 ## Classes

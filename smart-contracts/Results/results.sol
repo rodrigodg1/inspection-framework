@@ -5,7 +5,6 @@ pragma solidity >=0.8.2 <0.9.0;
 
 
 // ResultsContract is a smart contract that stores the results of inspections
-
 contract ResultsContract {
     // Private array of valid locations that only the contract can access
     string[] private valid_locations;
@@ -15,8 +14,7 @@ contract ResultsContract {
 
     // Result is a struct that represents the results of an inspection
     struct Result {
-        address requester;
-        string date;
+        address inspector;
         string location;
         string result;
     }
@@ -30,13 +28,13 @@ contract ResultsContract {
         manager = msg.sender;
     }
 
-    // InspectionResult function creates an inspection result and adds it to the results array if the requested location is valid
-    function InspectionResult(string memory _InspectionPlace, string memory _date, string memory _result) public returns (bool) {
+    // InspectionResult function creates an inspection result and adds it to the results array if the location is valid
+    function InspectionResult(string memory _InspectionPlace, string memory _result) public returns (bool) {
         bool isValidLocation = false;
 
-        // Loop through the valid_locations array to see if the requested location is in the array
+        // Loop through the valid_locations array to see if the location is in the array
         for(uint i = 0; i < valid_locations.length; i++) {
-            // Compare the hash of the current valid location with the hash of the requested location
+            // Compare the hash of the current valid location with the hash of the location
             if(keccak256(bytes(valid_locations[i])) == keccak256(bytes(_InspectionPlace))) {
                 // If the hashes match, set isValidLocation to true and exit the loop
                 isValidLocation = true;
@@ -44,11 +42,11 @@ contract ResultsContract {
             }
         }
 
-        // If the requested location is not valid, throw an error
+        // If the location is not valid, throw an error
         require(isValidLocation, "Invalid location");
 
-        // Add a new Result to the results array with the requester's address, date of inspection, location of inspection, and the result of the inspection
-        results.push(Result(msg.sender, _date, _InspectionPlace, _result));
+        // Add a new Result to the results array with the inspector's address, location of inspection, and the result of the inspection
+        results.push(Result(msg.sender, _InspectionPlace, _result));
         return true;
     }
 
