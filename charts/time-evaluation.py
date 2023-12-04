@@ -1,6 +1,6 @@
 # This python code reads Odometry ROS data from a odom.txt file
 # It creates transactions to a Blockchain network with this data
-# and evaluates the transaction time
+# and evaluates the transaction time.
 
 from dataclasses import dataclass
 import sys
