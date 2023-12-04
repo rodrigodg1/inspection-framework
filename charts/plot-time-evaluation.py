@@ -1,3 +1,6 @@
+# This python code reads time data from a out_times.txt file
+# and plots a box plot using matplotlib.
+
 import matplotlib.pyplot as plt
 import numpy as np
 
