@@ -3,7 +3,7 @@
 
 This project provides a framework for industrial safety inspections. 
 
-For our most recent implementation of multi-robot inspection systems, please visit:
+**For our most recent implementation of multi-robot inspection systems, please visit:**
 [Multi-Robot Inspection Repository](https://github.com/MiguelHenri/Multi-Robot-Inspection)
 
 
